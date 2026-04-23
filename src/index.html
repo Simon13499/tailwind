@@ -9,560 +9,449 @@
   <link rel="stylesheet" href="./output.css">
   <title>HENSTAV — Zahradnické a stavební práce</title>
 </head>
-<body class="font-[Inter,system-ui,sans-serif] text-gray-600 antialiased bg-white">
+<body class="bg-white font-[Inter,system-ui,sans-serif] text-gray-600 antialiased">
 
-  <!-- Hero + sticky header -->
-  <div class="relative min-h-[100svh] flex flex-col">
+  <div class="relative flex min-h-[100svh] flex-col">
     <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center"></div>
     <div class="absolute inset-0 bg-black/55"></div>
 
-    <header class="relative z-20 border-b border-white/10 bg-black/25 backdrop-blur-md">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16 md:h-20 gap-4">
-          <a href="#" class="flex items-center gap-2 shrink-0 text-white">
-            <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#0e5d37] ring-2 ring-white/20" aria-hidden="true">
-              <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2 3 2 7 0 10-2-3-2-7 0-10zM5 12c3 2 7 2 10 0-3-2-7-2-10 0zM12 21c2-3 2-7 0-10-2 3-2 7 0 10zM19 12c-3-2-7-2-10 0 3 2 7 2 10 0z"/>
-              </svg>
-            </span>
-            <span class="font-semibold text-lg tracking-tight">Garden.cz</span>
+    <header class="relative z-30 border-b border-white/10 bg-black/25 backdrop-blur-md">
+      <div class="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-20 lg:px-8">
+        <a href="#" class="shrink-0 text-white">
+          <span class="text-lg font-semibold tracking-tight">Garden.cz</span>
+        </a>
+
+        <nav class="hidden flex-1 items-center justify-center gap-8 text-sm font-medium text-white/90 lg:flex">
+          <a href="#" class="border-b-2 border-white pb-0.5 text-white">Domů</a>
+          <a href="#o-nas" class="transition-colors hover:text-white">O nás</a>
+          <a href="#sluzby" class="transition-colors hover:text-white">Služby</a>
+          <a href="#reference" class="transition-colors hover:text-white">Reference</a>
+          <a href="#kontakt" class="transition-colors hover:text-white">Kontakt</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a href="#kontakt" class="hidden rounded-full bg-[#0e5d37] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#0c4d2e] sm:inline-flex sm:items-center sm:justify-center">
+            Chci kalkulaci
           </a>
 
-          <nav class="hidden lg:flex items-center justify-center flex-1 gap-8 text-sm font-medium text-white/90">
-            <a href="#" class="text-white border-b-2 border-white pb-0.5">Domů</a>
-            <a href="#o-nas" class="hover:text-white transition-colors">O nás</a>
-            <a href="#sluzby" class="hover:text-white transition-colors">Služby</a>
-            <a href="#reference" class="hover:text-white transition-colors">Reference</a>
-            <a href="#kontakt" class="hover:text-white transition-colors">Kontakt</a>
-          </nav>
+          <button id="menu-toggle" type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white transition hover:bg-white/10 lg:hidden" aria-label="Otevřít menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="text-xl leading-none">☰</span>
+          </button>
+        </div>
+      </div>
 
-          <div class="flex items-center gap-3">
-            <a href="#kontakt" class="hidden sm:inline-flex items-center justify-center rounded-full bg-[#0e5d37] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#0c4d2e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+      <div id="mobile-menu" class="hidden border-t border-white/10 bg-black/90 lg:hidden">
+        <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+          <nav class="space-y-2 text-sm text-white">
+            <a href="#" class="block rounded-xl px-3 py-2 hover:bg-white/10">Domů</a>
+            <a href="#o-nas" class="block rounded-xl px-3 py-2 hover:bg-white/10">O nás</a>
+            <a href="#sluzby" class="block rounded-xl px-3 py-2 hover:bg-white/10">Služby</a>
+            <a href="#reference" class="block rounded-xl px-3 py-2 hover:bg-white/10">Reference</a>
+            <a href="#kontakt" class="block rounded-xl px-3 py-2 hover:bg-white/10">Kontakt</a>
+            <a href="#kontakt" class="mt-3 inline-flex rounded-full bg-[#0e5d37] px-4 py-2.5 font-semibold text-white hover:bg-[#0c4d2e]">
               Chci kalkulaci
             </a>
-
-            <details class="relative lg:hidden group">
-              <summary class="list-none cursor-pointer inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white hover:bg-white/10 transition [&::-webkit-details-marker]:hidden">
-                <span class="sr-only">Menu</span>
-                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/>
-                </svg>
-              </summary>
-              <div class="absolute right-0 mt-2 w-56 rounded-2xl border border-white/10 bg-black/90 p-3 text-sm text-white shadow-xl backdrop-blur-md">
-                <a href="#" class="block rounded-xl px-3 py-2 hover:bg-white/10">Domů</a>
-                <a href="#o-nas" class="block rounded-xl px-3 py-2 hover:bg-white/10">O nás</a>
-                <a href="#sluzby" class="block rounded-xl px-3 py-2 hover:bg-white/10">Služby</a>
-                <a href="#reference" class="block rounded-xl px-3 py-2 hover:bg-white/10">Reference</a>
-                <a href="#kontakt" class="block rounded-xl px-3 py-2 hover:bg-white/10">Kontakt</a>
-                <a href="#kontakt" class="mt-2 block rounded-full bg-[#0e5d37] px-3 py-2 text-center font-semibold hover:bg-[#0c4d2e]">Chci kalkulaci</a>
-              </div>
-            </details>
-          </div>
+          </nav>
         </div>
       </div>
     </header>
 
     <section class="relative z-10 flex flex-1 items-center py-16 md:py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-3xl text-center">
-          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white text-balance">
+          <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
             Vytvořte si zahradu snů
           </h1>
-          <p class="mt-5 text-base sm:text-lg leading-relaxed text-white/90 max-w-2xl mx-auto">
+          <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg">
             Kompletní realizace zahrad, terénní práce a péče o zeleň — od návrhu po údržbu. Spolehlivě, v termínu a s ohledem na váš rozpočet.
           </p>
-          <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
-            <a href="#kontakt" class="inline-flex items-center justify-center gap-2 rounded-full bg-[#0e5d37] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-black/20 transition hover:bg-[#0c4d2e]">
+          <div class="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
+            <a href="#kontakt" class="inline-flex items-center justify-center rounded-full bg-[#0e5d37] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-black/20 transition hover:bg-[#0c4d2e]">
               Chci kalkulaci
             </a>
-            <a href="#sluzby" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/80 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/15">
-              Naše služby
-              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            <a href="#sluzby" class="inline-flex items-center justify-center rounded-full border border-white/80 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/15">
+              Naše služby →
             </a>
           </div>
-          <p class="mt-10 text-sm text-white/85 flex flex-wrap items-center justify-center gap-2">
+          <p class="mt-10 flex flex-wrap items-center justify-center gap-2 text-sm text-white/85">
             <span>Moje recenze</span>
-            <span class="text-amber-400 tracking-tight" aria-hidden="true">★★★★★</span>
+            <span class="tracking-tight text-amber-400" aria-hidden="true">★★★★★</span>
           </p>
         </div>
       </div>
     </section>
   </div>
 
-  <!-- Služby -->
   <div id="sluzby"></div>
 
-  <section class="py-14 md:py-20 lg:py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+  <section class="bg-white py-14 md:py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="order-2 lg:order-1">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[#0e5d37] mb-3">Naše služby</p>
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-5">
-            Realizace zahrad
-          </h2>
-          <p class="leading-relaxed mb-6">
+          <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-[#0e5d37]">Naše služby</p>
+          <h2 class="mb-5 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl md:text-4xl">Realizace zahrad</h2>
+          <p class="mb-6 leading-relaxed">
             Od návrhu přes výsadbu až po finální úpravy — postaráme se o celý proces tak, aby výsledek ladil s vaším domem i životním stylem.
           </p>
-          <ul class="space-y-3 mb-8">
-            <li class="flex gap-3">
-              <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white text-xs font-bold">✓</span>
-              <span>Návrh zahrady a výběr materiálů</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white text-xs font-bold">✓</span>
-              <span>Realizace včetně závlahy a osvětlení</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white text-xs font-bold">✓</span>
-              <span>Terénní úpravy a dokončovací práce</span>
-            </li>
+          <ul class="mb-8 space-y-3">
+            <li class="flex gap-3"><span class="mt-0.5 text-[#0e5d37]">•</span><span>Návrh zahrady a výběr materiálů</span></li>
+            <li class="flex gap-3"><span class="mt-0.5 text-[#0e5d37]">•</span><span>Realizace včetně závlahy a osvětlení</span></li>
+            <li class="flex gap-3"><span class="mt-0.5 text-[#0e5d37]">•</span><span>Terénní úpravy a dokončovací práce</span></li>
           </ul>
-          <a href="#kontakt" class="inline-flex rounded-full bg-[#0e5d37] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#0c4d2e]">
-            Více informací
-          </a>
+          <a href="#kontakt" class="inline-flex rounded-full bg-[#0e5d37] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#0c4d2e]">Více informací</a>
         </div>
         <div class="order-1 lg:order-2">
-          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80" alt="Realizace zahrady" class="w-full h-[280px] sm:h-[360px] lg:h-[420px] object-cover rounded-2xl lg:rounded-3xl shadow-md ring-1 ring-black/5">
+          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80" alt="Realizace zahrady" class="h-[280px] w-full rounded-2xl object-cover shadow-md ring-1 ring-black/5 sm:h-[360px] lg:h-[420px] lg:rounded-3xl">
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-14 md:py-20 lg:py-24 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+  <section class="bg-gray-50 py-14 md:py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
-          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80" alt="Výkopové práce" class="w-full h-[280px] sm:h-[360px] lg:h-[420px] object-cover rounded-2xl lg:rounded-3xl shadow-md ring-1 ring-black/5">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80" alt="Výkopové práce" class="h-[280px] w-full rounded-2xl object-cover shadow-md ring-1 ring-black/5 sm:h-[360px] lg:h-[420px] lg:rounded-3xl">
         </div>
         <div>
-          <p class="text-sm font-semibold uppercase tracking-wider text-[#0e5d37] mb-3">Naše služby</p>
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-5">
-            Výkopové a zednické práce
-          </h2>
-          <p class="leading-relaxed mb-6">
+          <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-[#0e5d37]">Naše služby</p>
+          <h2 class="mb-5 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl md:text-4xl">Výkopové a zednické práce</h2>
+          <p class="mb-6 leading-relaxed">
             Příprava pozemku, výkopy pro základy, chodníky i závlahu. Zednické práce v menším rozsahu pro zahradní stavby a zpevněné plochy.
           </p>
-          <ul class="space-y-3 mb-8">
-            <li class="flex gap-3">
-              <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white text-xs font-bold">✓</span>
-              <span>Terénní úpravy a odvoz zeminy</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white text-xs font-bold">✓</span>
-              <span>Výkopy pro technologie a zpevnění</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white text-xs font-bold">✓</span>
-              <span>Zednické detaily a drobné stavby</span>
-            </li>
+          <ul class="mb-8 space-y-3">
+            <li class="flex gap-3"><span class="mt-0.5 text-[#0e5d37]">•</span><span>Terénní úpravy a odvoz zeminy</span></li>
+            <li class="flex gap-3"><span class="mt-0.5 text-[#0e5d37]">•</span><span>Výkopy pro technologie a zpevnění</span></li>
+            <li class="flex gap-3"><span class="mt-0.5 text-[#0e5d37]">•</span><span>Zednické detaily a drobné stavby</span></li>
           </ul>
-          <a href="#kontakt" class="inline-flex rounded-full bg-[#0e5d37] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#0c4d2e]">
-            Více informací
-          </a>
+          <a href="#kontakt" class="inline-flex rounded-full bg-[#0e5d37] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#0c4d2e]">Více informací</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-14 md:py-20 lg:py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+  <section class="bg-white py-14 md:py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="order-2 lg:order-1">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[#0e5d37] mb-3">Naše služby</p>
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-5">
-            Celoroční údržba zahrad
-          </h2>
-          <p class="leading-relaxed mb-6">
+          <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-[#0e5d37]">Naše služby</p>
+          <h2 class="mb-5 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl md:text-4xl">Celoroční údržba zahrad</h2>
+          <p class="mb-6 leading-relaxed">
             Sekání, řez dřevin, hnojení i příprava na zimu — udržíme zahradu v kondici po celý rok, abyste si ji užívali bez starostí.
           </p>
-          <ul class="space-y-3 mb-8">
-            <li class="flex gap-3">
-              <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white text-xs font-bold">✓</span>
-              <span>Pravidelný servis dle domluvy</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white text-xs font-bold">✓</span>
-              <span>Řez okrasných dřevin a stromů</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-white text-xs font-bold">✓</span>
-              <span>Sezónní úpravy a hnojení</span>
-            </li>
+          <ul class="mb-8 space-y-3">
+            <li class="flex gap-3"><span class="mt-0.5 text-[#0e5d37]">•</span><span>Pravidelný servis dle domluvy</span></li>
+            <li class="flex gap-3"><span class="mt-0.5 text-[#0e5d37]">•</span><span>Řez okrasných dřevin a stromů</span></li>
+            <li class="flex gap-3"><span class="mt-0.5 text-[#0e5d37]">•</span><span>Sezónní úpravy a hnojení</span></li>
           </ul>
-          <a href="#kontakt" class="inline-flex rounded-full bg-[#0e5d37] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#0c4d2e]">
-            Více informací
-          </a>
+          <a href="#kontakt" class="inline-flex rounded-full bg-[#0e5d37] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#0c4d2e]">Více informací</a>
         </div>
         <div class="order-1 lg:order-2">
-          <img src="https://images.unsplash.com/photo-1592150621754-6666448baf9f?auto=format&fit=crop&w=1200&q=80" alt="Údržba zahrady" class="w-full h-[280px] sm:h-[360px] lg:h-[420px] object-cover rounded-2xl lg:rounded-3xl shadow-md ring-1 ring-black/5">
+          <img src="https://images.unsplash.com/photo-1592150621754-6666448baf9f?auto=format&fit=crop&w=1200&q=80" alt="Údržba zahrady" class="h-[280px] w-full rounded-2xl object-cover shadow-md ring-1 ring-black/5 sm:h-[360px] lg:h-[420px] lg:rounded-3xl">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Reference / projekty -->
   <div id="reference"></div>
-  <section class="py-14 md:py-20 lg:py-24 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-10 md:mb-14">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
-          Projekty, které jsme tvořili
-        </h2>
-        <p class="leading-relaxed">
-          Ukázky realizací pro rodinné domy i firmy. Každý projekt řešíme individuálně podle lokality a vašich představ.
-        </p>
+  <section class="bg-gray-50 py-14 md:py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto mb-10 max-w-2xl text-center md:mb-14">
+        <h2 class="mb-4 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl md:text-4xl">Projekty, které jsme tvořili</h2>
+        <p class="leading-relaxed">Ukázky realizací pro rodinné domy i firmy. Každý projekt řešíme individuálně podle lokality a vašich představ.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        <article class="bg-white rounded-2xl overflow-hidden shadow-sm ring-1 ring-gray-200/80 hover:shadow-md transition-shadow">
-          <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4aaae?auto=format&fit=crop&w=900&q=80" alt="Projekt Plzeň" class="w-full h-52 sm:h-56 object-cover">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <article class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/80 transition-shadow hover:shadow-md">
+          <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4aaae?auto=format&fit=crop&w=900&q=80" alt="Projekt Plzeň" class="h-52 w-full object-cover sm:h-56">
           <div class="p-5 sm:p-6">
-            <h3 class="font-bold text-lg text-gray-900">Plzeň</h3>
-            <p class="text-sm font-medium text-[#0e5d37] mt-1">Rodinný dům</p>
-            <p class="text-sm mt-3 leading-relaxed">
-              Kompletní úprava zahrady včetně terasy a výsadby.
-            </p>
-            <ul class="mt-4 space-y-2 text-sm text-gray-600 list-disc list-inside marker:text-emerald-500">
-              <li>Terénní úpravy a záhon</li>
-              <li>Závlaha a osvětlení</li>
-              <li>Zpevněné plochy</li>
+            <h3 class="text-lg font-bold text-gray-900">Plzeň</h3>
+            <p class="mt-1 text-sm font-medium text-[#0e5d37]">Rodinný dům</p>
+            <p class="mt-3 text-sm leading-relaxed">Kompletní úprava zahrady včetně terasy a výsadby.</p>
+            <ul class="mt-4 space-y-2 text-sm text-gray-600">
+              <li>• Terénní úpravy a záhon</li>
+              <li>• Závlaha a osvětlení</li>
+              <li>• Zpevněné plochy</li>
             </ul>
           </div>
         </article>
 
-        <article class="bg-white rounded-2xl overflow-hidden shadow-sm ring-1 ring-gray-200/80 hover:shadow-md transition-shadow">
-          <img src="https://images.unsplash.com/photo-1572286258217-215cf8e1b9e4?auto=format&fit=crop&w=900&q=80" alt="Projekt Domažlice" class="w-full h-52 sm:h-56 object-cover">
+        <article class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/80 transition-shadow hover:shadow-md">
+          <img src="https://images.unsplash.com/photo-1572286258217-215cf8e1b9e4?auto=format&fit=crop&w=900&q=80" alt="Projekt Domažlice" class="h-52 w-full object-cover sm:h-56">
           <div class="p-5 sm:p-6">
-            <h3 class="font-bold text-lg text-gray-900">Domažlice</h3>
-            <p class="text-sm font-medium text-[#0e5d37] mt-1">Firemní areál</p>
-            <p class="text-sm mt-3 leading-relaxed">
-              Moderní venkovní prostor pro zaměstnance i návštěvníky.
-            </p>
-            <ul class="mt-4 space-y-2 text-sm text-gray-600 list-disc list-inside marker:text-emerald-500">
-              <li>Zeleň a relaxační zóna</li>
-              <li>Chodníky a parkování</li>
-              <li>Údržbový plán</li>
+            <h3 class="text-lg font-bold text-gray-900">Domažlice</h3>
+            <p class="mt-1 text-sm font-medium text-[#0e5d37]">Firemní areál</p>
+            <p class="mt-3 text-sm leading-relaxed">Moderní venkovní prostor pro zaměstnance i návštěvníky.</p>
+            <ul class="mt-4 space-y-2 text-sm text-gray-600">
+              <li>• Zeleň a relaxační zóna</li>
+              <li>• Chodníky a parkování</li>
+              <li>• Údržbový plán</li>
             </ul>
           </div>
         </article>
 
-        <article class="bg-white rounded-2xl overflow-hidden shadow-sm ring-1 ring-gray-200/80 hover:shadow-md transition-shadow">
-          <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=900&q=80" alt="Projekt Plasy" class="w-full h-52 sm:h-56 object-cover">
+        <article class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200/80 transition-shadow hover:shadow-md">
+          <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=900&q=80" alt="Projekt Plasy" class="h-52 w-full object-cover sm:h-56">
           <div class="p-5 sm:p-6">
-            <h3 class="font-bold text-lg text-gray-900">Plasy</h3>
-            <p class="text-sm font-medium text-[#0e5d37] mt-1">Veřejný prostor</p>
-            <p class="text-sm mt-3 leading-relaxed">
-              Úprava parku s důrazem na průchodnost a odolnost výsadby.
-            </p>
-            <ul class="mt-4 space-y-2 text-sm text-gray-600 list-disc list-inside marker:text-emerald-500">
-              <li>Revitalizace trávníků</li>
-              <li>Výsadba stromů a keřů</li>
-              <li>Sezení a odpadkové koše</li>
+            <h3 class="text-lg font-bold text-gray-900">Plasy</h3>
+            <p class="mt-1 text-sm font-medium text-[#0e5d37]">Veřejný prostor</p>
+            <p class="mt-3 text-sm leading-relaxed">Úprava parku s důrazem na průchodnost a odolnost výsadby.</p>
+            <ul class="mt-4 space-y-2 text-sm text-gray-600">
+              <li>• Revitalizace trávníků</li>
+              <li>• Výsadba stromů a keřů</li>
+              <li>• Sezení a odpadkové koše</li>
             </ul>
           </div>
         </article>
       </div>
 
-      <div class="mt-10 md:mt-12 flex justify-center">
-        <a href="#galerie" class="inline-flex rounded-full bg-[#0e5d37] px-8 py-3.5 text-sm font-semibold text-white transition hover:bg-[#0c4d2e]">
-          Zobrazit všechny projekty
-        </a>
+      <div class="mt-10 flex justify-center md:mt-12">
+        <a href="#galerie" class="inline-flex rounded-full bg-[#0e5d37] px-8 py-3.5 text-sm font-semibold text-white transition hover:bg-[#0c4d2e]">Zobrazit všechny projekty</a>
       </div>
     </div>
   </section>
 
-  <!-- Jak spolupráce probíhá -->
   <div id="o-nas"></div>
-  <section class="py-14 md:py-20 lg:py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-        <div class="lg:col-span-5 relative">
-          <img src="https://images.unsplash.com/photo-1466692476869-a02e8b42d42e?auto=format&fit=crop&w=900&q=80" alt="Rostliny a výsadba" class="w-full min-h-[320px] sm:min-h-[420px] lg:min-h-[520px] object-cover rounded-2xl lg:rounded-3xl shadow-md ring-1 ring-black/5">
-          <div class="absolute bottom-4 left-4 flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-gray-900 shadow-lg backdrop-blur-sm ring-1 ring-black/5">
+  <section class="bg-white py-14 md:py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-14">
+        <div class="relative lg:col-span-5">
+          <img src="https://images.unsplash.com/photo-1466692476869-a02e8b42d42e?auto=format&fit=crop&w=900&q=80" alt="Rostliny a výsadba" class="min-h-[320px] w-full rounded-2xl object-cover shadow-md ring-1 ring-black/5 sm:min-h-[420px] lg:min-h-[520px] lg:rounded-3xl">
+          <div class="absolute bottom-4 left-4 flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-gray-900 shadow-lg ring-1 ring-black/5 backdrop-blur-sm">
             <span>4.8</span>
             <span class="text-amber-400" aria-hidden="true">★★★★★</span>
           </div>
         </div>
         <div class="lg:col-span-7">
-          <p class="text-sm font-semibold uppercase tracking-wider text-[#0e5d37] mb-3">Spolupráce</p>
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-5">
-            Jak spolupráce probíhá?
-          </h2>
-          <p class="leading-relaxed mb-8 max-w-2xl">
-            Transparentní postup od prvního kontaktu po předání díla. Vždy víte, v jaké fázi se zakázka nachází a co vás čeká dál.
-          </p>
-          <ol class="space-y-6 mb-10">
-            <li class="flex gap-4">
-              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-sm font-bold text-white">1</span>
-              <div>
-                <p class="font-semibold text-gray-900">Nezávazná konzultace</p>
-                <p class="mt-1 text-sm sm:text-base leading-relaxed">Projdeme vaše představy, možnosti pozemku a rozpočet.</p>
-              </div>
-            </li>
-            <li class="flex gap-4">
-              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-sm font-bold text-white">2</span>
-              <div>
-                <p class="font-semibold text-gray-900">Návrh a kalkulace</p>
-                <p class="mt-1 text-sm sm:text-base leading-relaxed">Připravíme návrh řešení a transparentní cenovou nabídku.</p>
-              </div>
-            </li>
-            <li class="flex gap-4">
-              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-sm font-bold text-white">3</span>
-              <div>
-                <p class="font-semibold text-gray-900">Realizace</p>
-                <p class="mt-1 text-sm sm:text-base leading-relaxed">Koordinace prací, materiálů a termínů na jednom místě.</p>
-              </div>
-            </li>
-            <li class="flex gap-4">
-              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-sm font-bold text-white">4</span>
-              <div>
-                <p class="font-semibold text-gray-900">Předání a péče</p>
-                <p class="mt-1 text-sm sm:text-base leading-relaxed">Zkontrolujeme výsledek a domluvíme případnou údržbu.</p>
-              </div>
-            </li>
+          <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-[#0e5d37]">Spolupráce</p>
+          <h2 class="mb-5 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl md:text-4xl">Jak spolupráce probíhá?</h2>
+          <p class="mb-8 max-w-2xl leading-relaxed">Transparentní postup od prvního kontaktu po předání díla. Vždy víte, v jaké fázi se zakázka nachází a co vás čeká dál.</p>
+          <ol class="mb-10 space-y-6">
+            <li class="flex gap-4"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-sm font-bold text-white">1</span><div><p class="font-semibold text-gray-900">Nezávazná konzultace</p><p class="mt-1 text-sm leading-relaxed sm:text-base">Projdeme vaše představy, možnosti pozemku a rozpočet.</p></div></li>
+            <li class="flex gap-4"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-sm font-bold text-white">2</span><div><p class="font-semibold text-gray-900">Návrh a kalkulace</p><p class="mt-1 text-sm leading-relaxed sm:text-base">Připravíme návrh řešení a transparentní cenovou nabídku.</p></div></li>
+            <li class="flex gap-4"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-sm font-bold text-white">3</span><div><p class="font-semibold text-gray-900">Realizace</p><p class="mt-1 text-sm leading-relaxed sm:text-base">Koordinace prací, materiálů a termínů na jednom místě.</p></div></li>
+            <li class="flex gap-4"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-sm font-bold text-white">4</span><div><p class="font-semibold text-gray-900">Předání a péče</p><p class="mt-1 text-sm leading-relaxed sm:text-base">Zkontrolujeme výsledek a domluvíme případnou údržbu.</p></div></li>
           </ol>
-          <a href="#kontakt" class="inline-flex rounded-full bg-[#0e5d37] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#0c4d2e]">
-            Chci kalkulaci
-          </a>
+          <a href="#kontakt" class="inline-flex rounded-full bg-[#0e5d37] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#0c4d2e]">Chci kalkulaci</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Galerie + filtry -->
   <div id="galerie"></div>
-  <section class="py-14 md:py-20 lg:py-24 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-8 md:mb-10">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
-          Projekty, které jsme tvořili
-        </h2>
-        <p class="leading-relaxed">
-          Výběr z realizací — prohlédněte si detaily a inspiraci pro váš projekt.
-        </p>
+  <section class="bg-gray-50 py-14 md:py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto mb-8 max-w-2xl text-center md:mb-10">
+        <h2 class="mb-4 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl md:text-4xl">Projekty, které jsme tvořili</h2>
+        <p class="leading-relaxed">Výběr z realizací — prohlédněte si detaily a inspiraci pro váš projekt.</p>
       </div>
 
-      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 md:mb-10" role="tablist" aria-label="Filtr galerie">
-        <button type="button" class="rounded-full bg-[#0e5d37] px-5 py-2 text-sm font-semibold text-white shadow-sm" aria-current="true">VŠE</button>
-        <button type="button" class="rounded-full bg-white px-5 py-2 text-sm font-semibold text-gray-800 ring-1 ring-gray-200 hover:bg-gray-100 transition">Zahrady</button>
-        <button type="button" class="rounded-full bg-white px-5 py-2 text-sm font-semibold text-gray-800 ring-1 ring-gray-200 hover:bg-gray-100 transition">Realizace</button>
-        <button type="button" class="rounded-full bg-white px-5 py-2 text-sm font-semibold text-gray-800 ring-1 ring-gray-200 hover:bg-gray-100 transition">Ostatní</button>
+      <div class="mb-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:mb-10">
+        <button type="button" class="rounded-full bg-[#0e5d37] px-5 py-2 text-sm font-semibold text-white shadow-sm">VŠE</button>
+        <button type="button" class="rounded-full bg-white px-5 py-2 text-sm font-semibold text-gray-800 ring-1 ring-gray-200 transition hover:bg-gray-100">Zahrady</button>
+        <button type="button" class="rounded-full bg-white px-5 py-2 text-sm font-semibold text-gray-800 ring-1 ring-gray-200 transition hover:bg-gray-100">Realizace</button>
+        <button type="button" class="rounded-full bg-white px-5 py-2 text-sm font-semibold text-gray-800 ring-1 ring-gray-200 transition hover:bg-gray-100">Ostatní</button>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-        <div class="overflow-hidden rounded-2xl">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80" alt="Galerie" class="w-full h-64 sm:h-80 object-cover hover:scale-[1.02] transition duration-500">
-        </div>
-        <div class="overflow-hidden rounded-2xl">
-          <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4aaae?auto=format&fit=crop&w=900&q=80" alt="Galerie" class="w-full h-64 sm:h-36 object-cover hover:scale-[1.02] transition duration-500">
-        </div>
-        <div class="overflow-hidden rounded-2xl">
-          <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=900&q=80" alt="Galerie" class="w-full h-64 sm:h-36 object-cover hover:scale-[1.02] transition duration-500">
-        </div>
-        <div class="overflow-hidden rounded-2xl sm:col-span-2">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80" alt="Galerie" class="w-full h-56 sm:h-64 object-cover hover:scale-[1.02] transition duration-500">
-        </div>
-        <div class="overflow-hidden rounded-2xl">
-          <img src="https://images.unsplash.com/photo-1572286258217-215cf8e1b9e4?auto=format&fit=crop&w=900&q=80" alt="Galerie" class="w-full h-56 sm:h-64 object-cover hover:scale-[1.02] transition duration-500">
-        </div>
+      <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
+        <div class="overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80" alt="Galerie" class="h-64 w-full object-cover transition duration-500 hover:scale-[1.02] sm:h-80"></div>
+        <div class="overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1585320806297-9794b3e4aaae?auto=format&fit=crop&w=900&q=80" alt="Galerie" class="h-64 w-full object-cover transition duration-500 hover:scale-[1.02] sm:h-36"></div>
+        <div class="overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=900&q=80" alt="Galerie" class="h-64 w-full object-cover transition duration-500 hover:scale-[1.02] sm:h-36"></div>
+        <div class="overflow-hidden rounded-2xl sm:col-span-2"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80" alt="Galerie" class="h-56 w-full object-cover transition duration-500 hover:scale-[1.02] sm:h-64"></div>
+        <div class="overflow-hidden rounded-2xl"><img src="https://images.unsplash.com/photo-1572286258217-215cf8e1b9e4?auto=format&fit=crop&w=900&q=80" alt="Galerie" class="h-56 w-full object-cover transition duration-500 hover:scale-[1.02] sm:h-64"></div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="py-14 md:py-20 lg:py-24 bg-white" aria-labelledby="faq-heading">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-10 md:mb-12">
-        <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-[#0e5d37] ring-1 ring-emerald-100" aria-hidden="true">
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-          </svg>
-        </div>
-        <h2 id="faq-heading" class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-          Máte nějaké dotazy?
-        </h2>
+  <section class="bg-white py-14 md:py-20 lg:py-24" aria-labelledby="faq-heading">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-10 text-center md:mb-12">
+        <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-[#0e5d37]">FAQ</p>
+        <h2 id="faq-heading" class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl md:text-4xl">Máte nějaké dotazy?</h2>
       </div>
 
       <div class="divide-y divide-gray-200 border-y border-gray-200">
-        <details class="group py-4 md:py-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-medium text-gray-900 [&::-webkit-details-marker]:hidden">
+        <div class="faq-item py-4 md:py-5">
+          <button type="button" class="faq-question flex w-full items-center justify-between gap-4 text-left font-medium text-gray-900">
             <span>Jak dlouho trvá realizace zahrady?</span>
-            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 text-gray-500 group-open:rotate-45 transition-transform text-xl leading-none">+</span>
-          </summary>
-          <p class="mt-3 text-sm sm:text-base leading-relaxed pr-12">
+            <span class="text-xl leading-none text-gray-500">+</span>
+          </button>
+          <div class="faq-answer hidden pr-12 pt-3 text-sm leading-relaxed sm:text-base">
             Záleží na rozsahu — menší úpravy řádově týdny, kompletní zahrada často několik týdnů až měsíců. Po konzultaci dostanete orientační harmonogram.
-          </p>
-        </details>
-        <details class="group py-4 md:py-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-medium text-gray-900 [&::-webkit-details-marker]:hidden">
+          </div>
+        </div>
+
+        <div class="faq-item py-4 md:py-5">
+          <button type="button" class="faq-question flex w-full items-center justify-between gap-4 text-left font-medium text-gray-900">
             <span>Pracujete i mimo Plzeňský kraj?</span>
-            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 text-gray-500 group-open:rotate-45 transition-transform text-xl leading-none">+</span>
-          </summary>
-          <p class="mt-3 text-sm sm:text-base leading-relaxed pr-12">
+            <span class="text-xl leading-none text-gray-500">+</span>
+          </button>
+          <div class="faq-answer hidden pr-12 pt-3 text-sm leading-relaxed sm:text-base">
             Ano, dle typu zakázky a logistiky. Ozveme se s informací, zda je pro váš projekt spolupráce reálná.
-          </p>
-        </details>
-        <details class="group py-4 md:py-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-medium text-gray-900 [&::-webkit-details-marker]:hidden">
+          </div>
+        </div>
+
+        <div class="faq-item py-4 md:py-5">
+          <button type="button" class="faq-question flex w-full items-center justify-between gap-4 text-left font-medium text-gray-900">
             <span>Zajišťujete i návrh a projektovou dokumentaci?</span>
-            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 text-gray-500 group-open:rotate-45 transition-transform text-xl leading-none">+</span>
-          </summary>
-          <p class="mt-3 text-sm sm:text-base leading-relaxed pr-12">
+            <span class="text-xl leading-none text-gray-500">+</span>
+          </button>
+          <div class="faq-answer hidden pr-12 pt-3 text-sm leading-relaxed sm:text-base">
             Koordinujeme návrh a potřebné podklady; rozsah přizpůsobíme vašim požadavkům a charakteru stavby.
-          </p>
-        </details>
-        <details class="group py-4 md:py-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left font-medium text-gray-900 [&::-webkit-details-marker]:hidden">
+          </div>
+        </div>
+
+        <div class="faq-item py-4 md:py-5">
+          <button type="button" class="faq-question flex w-full items-center justify-between gap-4 text-left font-medium text-gray-900">
             <span>Jak probíhá údržba po realizaci?</span>
-            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 text-gray-500 group-open:rotate-45 transition-transform text-xl leading-none">+</span>
-          </summary>
-          <p class="mt-3 text-sm sm:text-base leading-relaxed pr-12">
+            <span class="text-xl leading-none text-gray-500">+</span>
+          </button>
+          <div class="faq-answer hidden pr-12 pt-3 text-sm leading-relaxed sm:text-base">
             Nabízíme pravidelnou péči o zeleň — četnost a rozsah si společně nastavíme podle sezóny a vašich preferencí.
-          </p>
-        </details>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Kontakt -->
   <div id="kontakt"></div>
-  <section class="py-14 md:py-20 lg:py-24 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-stretch">
-        <div class="bg-white rounded-2xl lg:rounded-3xl p-6 sm:p-8 shadow-sm ring-1 ring-gray-200/80">
-          <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight mb-2">
-            Pošlete nám nezávaznou poptávku
-          </h2>
-          <p class="text-sm sm:text-base leading-relaxed mb-6">
-            Vyplňte formulář a ozveme se vám s dalšími kroky.
-          </p>
+  <section class="bg-gray-50 py-14 md:py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 items-stretch gap-10 lg:grid-cols-2 lg:gap-14">
+        <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200/80 sm:p-8 lg:rounded-3xl">
+          <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Pošlete nám nezávaznou poptávku</h2>
+          <p class="mb-6 text-sm leading-relaxed sm:text-base">Vyplňte formulář a ozveme se vám s dalšími kroky.</p>
           <form class="space-y-4" action="#" method="post">
-            <div>
-              <label class="sr-only" for="name">Jméno</label>
-              <input id="name" name="name" type="text" autocomplete="name" placeholder="Jméno" class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:border-[#0e5d37] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0e5d37]/25">
-            </div>
-            <div>
-              <label class="sr-only" for="email">E-mail</label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="E-mail" class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:border-[#0e5d37] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0e5d37]/25">
-            </div>
-            <div>
-              <label class="sr-only" for="phone">Telefon</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Telefon" class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:border-[#0e5d37] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0e5d37]/25">
-            </div>
-            <div>
-              <label class="sr-only" for="address">Adresa</label>
-              <input id="address" name="address" type="text" autocomplete="street-address" placeholder="Adresa (volitelné)" class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:border-[#0e5d37] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0e5d37]/25">
-            </div>
-            <div>
-              <label class="sr-only" for="message">Zpráva</label>
-              <textarea id="message" name="message" rows="5" placeholder="Zpráva" class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:border-[#0e5d37] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0e5d37]/25 resize-y min-h-[140px]"></textarea>
-            </div>
-            <button type="submit" class="w-full rounded-full bg-[#0e5d37] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#0c4d2e]">
-              Poslat poptávku
-            </button>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Jméno" class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:border-[#0e5d37] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0e5d37]/25">
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="E-mail" class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:border-[#0e5d37] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0e5d37]/25">
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Telefon" class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:border-[#0e5d37] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0e5d37]/25">
+            <input id="address" name="address" type="text" autocomplete="street-address" placeholder="Adresa (volitelné)" class="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:border-[#0e5d37] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0e5d37]/25">
+            <textarea id="message" name="message" rows="5" placeholder="Zpráva" class="min-h-[140px] w-full resize-y rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 placeholder:text-gray-400 focus:border-[#0e5d37] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0e5d37]/25"></textarea>
+            <button type="submit" class="w-full rounded-full bg-[#0e5d37] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#0c4d2e]">Poslat poptávku</button>
           </form>
         </div>
 
-        <div class="min-h-[320px] lg:min-h-0 rounded-2xl lg:rounded-3xl overflow-hidden shadow-sm ring-1 ring-gray-200/80">
-          <iframe title="Mapa — HENSTAV" src="https://www.google.com/maps?q=Domažlice&output=embed" class="w-full h-full min-h-[320px] lg:min-h-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="overflow-hidden rounded-2xl shadow-sm ring-1 ring-gray-200/80 lg:rounded-3xl">
+          <iframe title="Mapa — HENSTAV" src="https://www.google.com/maps?q=Domažlice&output=embed" class="min-h-[320px] h-full w-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA banner -->
-  <section class="pb-14 md:pb-20 lg:pb-24 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="relative overflow-hidden rounded-2xl md:rounded-3xl bg-[#0e5d37] px-6 py-12 sm:px-10 sm:py-14 md:py-16 text-center shadow-lg">
+  <section class="bg-gray-50 pb-14 md:pb-20 lg:pb-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="relative overflow-hidden rounded-2xl bg-[#0e5d37] px-6 py-12 text-center shadow-lg sm:px-10 sm:py-14 md:rounded-3xl md:py-16">
         <div class="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full border border-white/10"></div>
         <div class="pointer-events-none absolute -right-8 -top-8 h-44 w-44 rounded-full border border-white/10"></div>
         <div class="pointer-events-none absolute -right-24 top-10 h-32 w-32 rounded-full border border-white/10"></div>
-        <div class="relative z-10 max-w-2xl mx-auto">
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight text-balance">
-            Nejste si jisti, co na zahradě chcete?
-          </h2>
-          <p class="mt-4 text-white/90 leading-relaxed">
-            Napište nám a rádi vám poradíme s rozsahem prací, materiály i rozpočtem — nezávazně a srozumitelně.
-          </p>
-          <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
-            <a href="#kontakt" class="inline-flex items-center justify-center rounded-full border-2 border-white px-7 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#0e5d37]">
-              Chci kalkulaci
-            </a>
-            <a href="#kontakt" class="inline-flex items-center justify-center rounded-full border-2 border-white px-7 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#0e5d37]">
-              Poradit se s námi
-            </a>
+        <div class="relative z-10 mx-auto max-w-2xl">
+          <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">Nejste si jisti, co na zahradě chcete?</h2>
+          <p class="mt-4 leading-relaxed text-white/90">Napište nám a rádi vám poradíme s rozsahem prací, materiály i rozpočtem — nezávazně a srozumitelně.</p>
+          <div class="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
+            <a href="#kontakt" class="inline-flex items-center justify-center rounded-full border-2 border-white px-7 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#0e5d37]">Chci kalkulaci</a>
+            <a href="#kontakt" class="inline-flex items-center justify-center rounded-full border-2 border-white px-7 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#0e5d37]">Poradit se s námi</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-100 text-gray-700 pt-14 pb-8 md:pt-16 border-t border-gray-200/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+  <footer class="border-t border-gray-200/80 bg-gray-100 pb-8 pt-14 text-gray-700 md:pt-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
         <div>
-          <div class="flex items-center gap-2 text-gray-900">
-            <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#0e5d37] text-white">
-              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2 3 2 7 0 10-2-3-2-7 0-10z"/>
-              </svg>
-            </span>
+          <div class="text-gray-900">
             <span class="text-xl font-bold tracking-tight">HENSTAV</span>
           </div>
-          <p class="mt-4 text-sm leading-relaxed max-w-sm">
-            Zahradnické a stavební práce na klíč. Spolehlivá realizace, férová komunikace a zeleň, která dává smysl.
-          </p>
-          <div class="mt-6 flex gap-3">
-            <a href="#" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#0e5d37] text-white hover:bg-[#0c4d2e] transition" aria-label="Facebook">
-              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.5 9.95v-7.05h-2.2V12h2.2V9.8c0-2.17 1.3-3.37 3.28-3.37.95 0 1.95.17 1.95.17v2.15h-1.1c-1.08 0-1.42.67-1.42 1.36V12h2.42l-.39 2.9h-2.03v7.05A10 10 0 0022 12z"/></svg>
-            </a>
-            <a href="#" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#0e5d37] text-white hover:bg-[#0c4d2e] transition" aria-label="Instagram">
-              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm10 2H7a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3zm-5 3.5A4.5 4.5 0 1112 17a4.5 4.5 0 010-9zm0 2a2.5 2.5 0 100 5 2.5 2.5 0 000-5zm5.75-.75a1 1 0 11-2 0 1 1 0 012 0z"/></svg>
-            </a>
+          <p class="mt-4 max-w-sm text-sm leading-relaxed">Zahradnické a stavební práce na klíč. Spolehlivá realizace, férová komunikace a zeleň, která dává smysl.</p>
+          <div class="mt-6 flex gap-3 text-sm">
+            <a href="#" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#0e5d37] font-semibold text-white transition hover:bg-[#0c4d2e]" aria-label="Facebook">f</a>
+            <a href="#" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#0e5d37] font-semibold text-white transition hover:bg-[#0c4d2e]" aria-label="Instagram">ig</a>
           </div>
         </div>
 
         <div>
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-900 mb-4">Služby</h3>
+          <h3 class="mb-4 text-sm font-semibold uppercase tracking-wide text-gray-900">Služby</h3>
           <ul class="space-y-3 text-sm">
-            <li><a href="#sluzby" class="hover:text-[#0e5d37] transition">Realizace zahrad</a></li>
-            <li><a href="#sluzby" class="hover:text-[#0e5d37] transition">Výkopové práce</a></li>
-            <li><a href="#sluzby" class="hover:text-[#0e5d37] transition">Údržba zeleně</a></li>
-            <li><a href="#reference" class="hover:text-[#0e5d37] transition">Reference</a></li>
+            <li><a href="#sluzby" class="transition hover:text-[#0e5d37]">Realizace zahrad</a></li>
+            <li><a href="#sluzby" class="transition hover:text-[#0e5d37]">Výkopové práce</a></li>
+            <li><a href="#sluzby" class="transition hover:text-[#0e5d37]">Údržba zeleně</a></li>
+            <li><a href="#reference" class="transition hover:text-[#0e5d37]">Reference</a></li>
           </ul>
         </div>
 
         <div>
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-900 mb-4">Odkazy</h3>
+          <h3 class="mb-4 text-sm font-semibold uppercase tracking-wide text-gray-900">Odkazy</h3>
           <ul class="space-y-3 text-sm">
-            <li><a href="#" class="hover:text-[#0e5d37] transition">Domů</a></li>
-            <li><a href="#o-nas" class="hover:text-[#0e5d37] transition">O nás</a></li>
-            <li><a href="#galerie" class="hover:text-[#0e5d37] transition">Galerie</a></li>
-            <li><a href="#kontakt" class="hover:text-[#0e5d37] transition">Kontakt</a></li>
+            <li><a href="#" class="transition hover:text-[#0e5d37]">Domů</a></li>
+            <li><a href="#o-nas" class="transition hover:text-[#0e5d37]">O nás</a></li>
+            <li><a href="#galerie" class="transition hover:text-[#0e5d37]">Galerie</a></li>
+            <li><a href="#kontakt" class="transition hover:text-[#0e5d37]">Kontakt</a></li>
           </ul>
         </div>
 
         <div>
-          <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-900 mb-4">Kontakt</h3>
+          <h3 class="mb-4 text-sm font-semibold uppercase tracking-wide text-gray-900">Kontakt</h3>
           <ul class="space-y-3 text-sm">
             <li>Domažlice, případně dle zakázky</li>
-            <li><a href="tel:+420777123456" class="hover:text-[#0e5d37] transition">+420 777 123 456</a></li>
-            <li><a href="mailto:info@henstav.cz" class="hover:text-[#0e5d37] transition">info@henstav.cz</a></li>
+            <li><a href="tel:+420777123456" class="transition hover:text-[#0e5d37]">+420 777 123 456</a></li>
+            <li><a href="mailto:info@henstav.cz" class="transition hover:text-[#0e5d37]">info@henstav.cz</a></li>
             <li>Po–Pá 8:00–17:00</li>
           </ul>
         </div>
       </div>
 
-      <div class="mt-12 pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-sm text-gray-500">
+      <div class="mt-12 flex flex-col items-start justify-between gap-3 border-t border-gray-200 pt-6 text-sm text-gray-500 sm:flex-row sm:items-center">
         <p>© 2026 HENSTAV. Všechna práva vyhrazena.</p>
-        <p class="inline-flex items-center gap-2 text-gray-700">
-          <svg class="h-4 w-4 text-[#0e5d37]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-          <a href="tel:+420777123456" class="font-medium hover:text-[#0e5d37] transition">+420 777 123 456</a>
+        <p class="text-gray-700">
+          Tel: <a href="tel:+420777123456" class="font-medium transition hover:text-[#0e5d37]">+420 777 123 456</a>
         </p>
       </div>
     </div>
   </footer>
 
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        mobileMenu.classList.toggle('hidden');
+        menuToggle.setAttribute('aria-expanded', String(!isOpen));
+        menuToggle.innerHTML = `<span class="text-xl leading-none">${isOpen ? '☰' : '✕'}</span>`;
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.innerHTML = '<span class="text-xl leading-none">☰</span>';
+        });
+      });
+    }
+
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.faq-item');
+        const answer = item.querySelector('.faq-answer');
+        const icon = button.querySelector('span:last-child');
+        const isOpen = !answer.classList.contains('hidden');
+
+        document.querySelectorAll('.faq-answer').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll('.faq-question span:last-child').forEach(el => el.textContent = '+');
+
+        if (isOpen) {
+          answer.classList.add('hidden');
+          icon.textContent = '+';
+        } else {
+          answer.classList.remove('hidden');
+          icon.textContent = '−';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
